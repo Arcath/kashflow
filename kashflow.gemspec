@@ -10,21 +10,22 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pogodan"]
   s.date = %q{2010-12-31}
-  s.description = %q{A Ruby wrapper for the Kashflow SOAP API}
+  s.description = %q{A Ruby wrapper for the Kashflow Accouting SOAP API}
   s.email = %q{paul@pogodan.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README.mkd"
   ]
   s.files = [
     ".document",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
+    "README.mkd",
     "Rakefile",
     "VERSION",
     "config/kf_api_methods.yml",
+    "kashflow.gemspec",
     "lib/kashflow.rb",
     "lib/kashflow/api.rb",
     "lib/kashflow/api_method.rb",
