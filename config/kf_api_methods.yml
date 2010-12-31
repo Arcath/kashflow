@@ -1,0 +1,1359 @@
+--- 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetCustomer
+  request_attrs: 
+  - :type: String
+    :desc: The unique customer code
+    :name: CustomerCode
+  response_attrs: 
+  - :type: Customer
+    :desc: An object of type Customer
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetCustomerById
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique customer id
+    :name: CustomerID
+  response_attrs: 
+  - :type: Customer
+    :desc: An object of type Customer
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetCustomerByEmail
+  request_attrs: 
+  - :type: String
+    :desc: The customers email address
+    :name: CustomerEmail
+  response_attrs: 
+  - :type: Customer
+    :desc: An object of type Customer
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetCustomers
+  request_attrs: []
+
+  response_attrs: 
+  - :type: Customer
+    :desc: An array of objects of type Customer
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetCustomersModifiedSince
+  request_attrs: 
+  - :type: DateTime
+    :desc: Only customers modified/created on or after this date will be returned
+    :name: ModDate
+  response_attrs: 
+  - :type: Customer
+    :desc: An array of objects of type Customer
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertCustomer
+  request_attrs: 
+  - :type: Customer
+    :desc: An object of type Customer
+    :name: Customer
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateCustomer
+  request_attrs: 
+  - :type: Customer
+    :desc: An object of type Customer
+    :name: Customer
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteCustomer
+  request_attrs: 
+  - :type: Int
+    :desc: The unique customer code
+    :name: CustomerID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetCustomerSources
+  request_attrs: []
+
+  response_attrs: 
+  - :type: BasicDataset
+    :desc: An array of objects of type BasicDataset
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetCustomerVATNumber
+  request_attrs: 
+  - :type: String
+    :desc: The unique customer code.
+    :name: CustomerCode
+  response_attrs: 
+  - :type: String
+    :desc: A VAT Number.
+    :name: CustVATNumber
+- !ruby/object:Kashflow::ApiMethod 
+  name: SetCustomerVATNumber
+  request_attrs: 
+  - :type: String
+    :desc: A VAT Number.
+    :name: CustVATNumber
+  - :type: String
+    :desc: The unique customer code.
+    :name: CustomerCode
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetCustomerCurrency
+  request_attrs: 
+  - :type: String
+    :desc: The unique customer code.
+    :name: CustomerCode
+  response_attrs: 
+  - :type: String
+    :desc: A currency code e.g. GBP, USD , ZAR
+    :name: CustCurrencyCode
+- !ruby/object:Kashflow::ApiMethod 
+  name: SetCustomerCurrency
+  request_attrs: 
+  - :type: String
+    :desc: |-
+      The ISO code of a currency.
+      				
+      				E.g. USD, GBP
+    :name: CurrencyCode
+  - :type: String
+    :desc: The unique customer code.
+    :name: CustomerCode
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteQuote
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the quote number you want to delete
+    :name: QuoteNumber
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteQuoteByID
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the quote id you want to delete
+    :name: QuoteID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteQuoteLine
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the quote number you want to delete
+    :name: QuoteNumber
+  - :type: Integer
+    :desc: An integer representing the quote line id you want to delete
+    :name: LineID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteQuoteLineWithQuoteID
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the quote id you want to delete
+    :name: QuoteID
+  - :type: Integer
+    :desc: An integer representing the quote line id you want to delete
+    :name: LineID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetQuoteByNumber
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique quote number
+    :name: QuoteNumber
+  response_attrs: 
+  - :type: Quote
+    :desc: An object of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetQuoteByID
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique qoute id
+    :name: QouteID
+  response_attrs: 
+  - :type: Qoute
+    :desc: An object of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetQuotes
+  request_attrs: []
+
+  response_attrs: 
+  - :type: Quote
+    :desc: An array object of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetQuotesForCustomer
+  request_attrs: 
+  - :type: Integer
+    :desc: The ID of the customer
+    :name: CustID
+  response_attrs: 
+  - :type: Invoice
+    :desc: An array of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertQuote
+  request_attrs: 
+  - :type: Quote
+    :desc: An object of type Invoice
+    :name: Quote
+  response_attrs: 
+  - :type: Integer
+    :desc: An Integer representing the new, unique quote id
+    :name: QuoteID
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertQuoteLine
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer value representing the quote id
+    :name: QuoteID
+  - :type: QuoteLine
+    :desc: An object of type InvoiceLine
+    :name: QuoteLine
+  response_attrs: 
+  - :type: Integer
+    :desc: An Integer representing the new, unique quote line ID
+    :name: QuoteLineID
+- !ruby/object:Kashflow::ApiMethod 
+  name: isStillQuote
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique qoute id
+    :name: QouteID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateQuote
+  request_attrs: 
+  - :type: Quote
+    :desc: An object of type Invoice
+    :name: Quote
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateQuoteHeader
+  request_attrs: 
+  - :type: Quote
+    :desc: An object of type Invoice
+    :name: Quote
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: ConvertQuoteToInvoice
+  request_attrs: 
+  - :type: Integer
+    :desc: The ID of the quote you wish to convert
+    :name: QuoteID
+  - :type: Integer
+    :desc: The ID of the customer you want the invoice assigned to. Leave it as 0 and it'll be assigned to the same customer as the quote.
+    :name: CustomerID
+  - :type: Integer
+    :desc: Set to 1 if you want a line on the invoice saying "Based on Quote Number x"
+    :name: CopyQuoteReference
+  - :type: Integer
+    :desc: If set to 1 then the quote will be deleted once the invoice has been created
+    :name: |-
+      deleteQuote
+                    Afterconversion
+  response_attrs: 
+  - :type: Invoice
+    :desc: An object of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetInvoice
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique invoice number
+    :name: InvoiceNumber
+  response_attrs: 
+  - :type: Invoice
+    :desc: An object of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetInvoiceByID
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique invoice id
+    :name: InvoiceID
+  response_attrs: 
+  - :type: Invoice
+    :desc: An object of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetInvoicesByDateRange
+  request_attrs: 
+  - :type: DateTime
+    :desc: The start date of the range for which you'd like to view invoices
+    :name: StartDate
+  - :type: DateTime
+    :desc: The end date for the range
+    :name: EndDate
+  response_attrs: 
+  - :type: Invoice
+    :desc: An array of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetInvoicesForCustomer
+  request_attrs: 
+  - :type: Integer
+    :desc: The ID of the customer
+    :name: CustID
+  response_attrs: 
+  - :type: Invoice
+    :desc: An array of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetInvoices_Overdue
+  request_attrs: []
+
+  response_attrs: 
+  - :type: Invoice
+    :desc: An array of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetInvoices_Recent
+  request_attrs: 
+  - :type: Integer
+    :desc: The number of invoices you'd like returned
+    :name: NumberOfInvoices
+  response_attrs: 
+  - :type: Invoice
+    :desc: An array of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetInvoices_Unpaid
+  request_attrs: []
+
+  response_attrs: 
+  - :type: Invoice
+    :desc: An array of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertInvoice
+  request_attrs: 
+  - :type: Invoice
+    :desc: An object of type Invoice
+    :name: Invoice
+  response_attrs: 
+  - :type: Integer
+    :desc: An Integer representing the new, unique invoice number
+    :name: InvoiceNumber
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertInvoiceLine
+  request_attrs: 
+  - :type: Integer
+    :desc: An Integer representing the unique invoice id
+    :name: InvoiceID
+  - :type: InvoiceLine
+    :desc: An object of type InvoiceLine
+    :name: InvoiceLine
+  response_attrs: 
+  - :type: Integer
+    :desc: An Integer representing the new, unique invoice line ID
+    :name: InvoiceLineID
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertInvoiceLineWithInvoiceNumber
+  request_attrs: 
+  - :type: Integer
+    :desc: An Integer representing the invoice number
+    :name: InvoiceNumber
+  - :type: InvoiceLine
+    :desc: An object of type InvoiceLine
+    :name: InvoiceLine
+  response_attrs: 
+  - :type: Integer
+    :desc: An Integer representing the new, unique invoice line ID
+    :name: InvoiceLineID
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateInvoice
+  request_attrs: 
+  - :type: Invoice
+    :desc: An object of type Invoice
+    :name: Invoice
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateInvoiceHeader
+  request_attrs: 
+  - :type: Invoice
+    :desc: An object of type Invoice
+    :name: Invoice
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteInvoice
+  request_attrs: 
+  - :type: Integer
+    :desc: The invoice number
+    :name: InvoiceNumber
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteInvoiceByID
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique invoice id
+    :name: InvoiceID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteInvoiceLine
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the invoice line id
+    :name: InvoiceLineID
+  - :type: Integer
+    :desc: An integer representing the invoice number
+    :name: InvoiceNumber
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteInvoiceLineWithInvoiceID
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the invoice line id
+    :name: InvoiceLineID
+  - :type: Integer
+    :desc: An integer representing the invoice id
+    :name: InvoiceID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: EmailInvoice
+  request_attrs: 
+  - :type: Integer
+    :desc: The number of the invoice to be emailed.
+    :name: InvoiceNumber
+  - :type: String
+    :desc: The name of the sender
+    :name: FromEmail
+  - :type: String
+    :desc: The email address that the invoice should appear to have been sent from
+    :name: FromName
+  - :type: String
+    :desc: The subject line to be used on the email
+    :name: SubjectLine
+  - :type: String
+    :desc: The body of the email
+    :name: Body
+  - :type: String
+    :desc: The recipients email address
+    :name: RecipientEmail
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: PrintInvoice
+  request_attrs: 
+  - :type: Integer
+    :desc: |-
+      The invoice number for the invoice you want to print. 
+                  If you are instead supplying a string of numbers in the 
+                  next argument then you should set this to 0
+    :name: InvoiceNumber
+  - :type: String
+    :desc: |-
+      A comma separated list of invoice numbers. 
+                  You can just provide an empty string if you are 
+                  providing a single invoice number above.
+    :name: InvoiceNumberList
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetPaypalLink
+  request_attrs: []
+
+  response_attrs: 
+  - :type: String
+    :desc: A string containing the URL
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetInvoicePayment
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique invoice number for which you wish to retrieve payments
+    :name: InvoiceNumber
+  response_attrs: 
+  - :type: Payment
+    :desc: An array of objects of type Payment
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetInvPayMethods
+  request_attrs: []
+
+  response_attrs: 
+  - :type: InvoicePaymentMethod
+    :desc: An array of objects of type PaymentMethod
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertInvoicePayment
+  request_attrs: 
+  - :type: Payment
+    :desc: An object of type Payment
+    :name: Payment
+  response_attrs: 
+  - :type: Integer
+    :desc: An integer representing the new payment number
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteInvoicePayment
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the  payment number you want to delete
+    :name: PaymentNumber
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetSupplier
+  request_attrs: 
+  - :type: String
+    :desc: The unique supplier code
+    :name: SupplierCode
+  response_attrs: 
+  - :type: Supplier
+    :desc: An object of type Supplier
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetSuppliers
+  request_attrs: []
+
+  response_attrs: 
+  - :type: Supplier
+    :desc: An array object of type Supplier
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetSupplierById
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique Supplier id
+    :name: SupplierID
+  response_attrs: 
+  - :type: Supplier
+    :desc: An object of type Supplier
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertSupplier
+  request_attrs: 
+  - :type: Supplier
+    :desc: An object of type Supplier
+    :name: Supplier
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateSupplier
+  request_attrs: 
+  - :type: Supplier
+    :desc: An object of type Supplier
+    :name: Supplier
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetSupplierVATNumber
+  request_attrs: 
+  - :type: String
+    :desc: The unique supplier code.
+    :name: SupplierCode
+  response_attrs: 
+  - :type: String
+    :desc: A VAT Number.
+    :name: SupVATNumber
+- !ruby/object:Kashflow::ApiMethod 
+  name: SetSupplierVATNumber
+  request_attrs: 
+  - :type: String
+    :desc: A VAT Number.
+    :name: SupVATNumber
+  - :type: String
+    :desc: The unique supplier code.
+    :name: SupplierCode
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetSupplierCurrency
+  request_attrs: 
+  - :type: String
+    :desc: The unique supplier code.
+    :name: SupplierCode
+  response_attrs: 
+  - :type: String
+    :desc: A currency code e.g. GBP, USD , ZAR
+    :name: SuppCurrencyCode
+- !ruby/object:Kashflow::ApiMethod 
+  name: SetSupplierCurrency
+  request_attrs: 
+  - :type: String
+    :desc: |-
+      The ISO code of a currency.
+      				
+      				E.g. USD, GBP
+    :name: CurrencyCode
+  - :type: String
+    :desc: The unique supplier code.
+    :name: SupplierCode
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetReceipt
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique receipt number
+    :name: ReceiptNumber
+  response_attrs: 
+  - :type: Receipt
+    :desc: An object of type Receipt
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetReceipts
+  request_attrs: []
+
+  response_attrs: 
+  - :type: Invoice
+    :desc: An array of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetReceiptsForSupplier
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique supplier id
+    :name: SupplierID
+  response_attrs: 
+  - :type: Invoice
+    :desc: An array of type Invoice
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertReceipt
+  request_attrs: 
+  - :type: Invoice
+    :desc: An object of type Invoice
+    :name: Invoice
+  response_attrs: 
+  - :type: Integer
+    :desc: An Integer representing the new, unique receipt number
+    :name: ReceiptNumber
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateReceipt
+  request_attrs: 
+  - :type: Invoice
+    :desc: An object of type Invoice
+    :name: Receipt
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateReceiptHeader
+  request_attrs: 
+  - :type: Invoice
+    :desc: An object of type Invoice
+    :name: Invoice
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteReceipt
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the receipt number you want to delete
+    :name: ReceiptNumber
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteReceiptByID
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the receipt id you want to delete
+    :name: ReceiptID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertReceiptLine
+  request_attrs: 
+  - :type: Integer
+    :desc: The receipt id for the receipt you're adding line(s) to
+    :name: ReceiptID
+  - :type: InvoiceLine
+    :desc: An object of type InvoiceLine
+    :name: RceiptLine
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertReceiptLineFromNumber
+  request_attrs: 
+  - :type: Integer
+    :desc: The receipt number for the receipt you're adding line(s) to
+    :name: ReceiptNumber
+  - :type: InvoiceLine
+    :desc: An object of type InvoiceLine
+    :name: RceiptLine
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteReceiptLine
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the receipt line id you want to delete
+    :name: LineID
+  - :type: Integer
+    :desc: An integer representing the receipt number you want to delete
+    :name: ReceiptNumber
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteReceiptLineWithReceiptID
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the receipt line id you want to delete
+    :name: LineID
+  - :type: Integer
+    :desc: An integer representing the receipt id you want to delete
+    :name: ReceiptID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: AttachFileToReceipt
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer value representing the receipt no.
+    :name: ReceiptNo
+  - :type: String
+    :desc: A base64 encoded string of the file to be attached.
+    :name: Base64String
+  - :type: String
+    :desc: The content type of the file to be attached.e.g. "plain/text"
+    :name: ContentType
+  - :type: String
+    :desc: The name and extension of the file to be attached.
+    :name: Filename
+  - :type: String
+    :desc: The extension of the file to be attached.e.g. "txt" or "pdf"
+    :name: FileExtension
+  - :type: String
+    :desc: The size of the file.e.g. "510"
+    :name: FileSize
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetReceiptAttachments
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer value representing the receipt id.
+    :name: ReceiptID
+  response_attrs: 
+  - :type: ReceiptAttachment
+    :desc: An array of objects of type ReceiptAttachment
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteReceiptAttachment
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer value representing the receipt id.
+    :name: ReceiptID
+  - :type: Integer
+    :desc: An integer value representing the attachment id.
+    :name: AttachmentID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetReceiptPayment
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique receipt number for which you wish to retrieve payments
+    :name: ReceiptNumber
+  response_attrs: 
+  - :type: Payment
+    :desc: An array of objects of type Payment
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetRecPayMethods
+  request_attrs: []
+
+  response_attrs: 
+  - :type: ReceiptPaymentMethod
+    :desc: An array of objects of type PaymentMethod
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertReceiptPayment
+  request_attrs: 
+  - :type: Payment
+    :desc: An object of type Payment
+    :name: Payment
+  response_attrs: 
+  - :type: Integer
+    :desc: An integer representing the new payment number
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteReceiptPayment
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the  payment number you want to delete
+    :name: PaymentNumber
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: CreateBankAccount
+  request_attrs: 
+  - :type: String
+    :desc: ""
+    :name: AccountName
+  - :type: Integer
+    :desc: ""
+    :name: NominalCode
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetBankAccounts
+  request_attrs: []
+
+  response_attrs: 
+  - :type: BankAccount
+    :desc: An array of objects of type BankAccount
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetBankTXTypes
+  request_attrs: []
+
+  response_attrs: 
+  - :type: BankTXType
+    :desc: An array of objects of type BankTXType
+    :name: BankTXTypes[]
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetBankBalance
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the unique bank account id
+    :name: AccountID
+  - :type: DateTime
+    :desc: !binary |
+      wqA=
+
+    :name: BalanceDate
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetBankTransactions
+  request_attrs: 
+  - :type: Integer
+    :desc: The unique bank account id
+    :name: AccountID
+  response_attrs: 
+  - :type: BankTransaction
+    :desc: An array of type BankTransaction
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertBankTransaction
+  request_attrs: 
+  - :type: Invoice
+    :desc: An object of type BankTransaction
+    :name: BankTransaction
+  response_attrs: 
+  - :type: Integer
+    :desc: An Integer representing the new, system-wide unique tx number
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateBankTransaction
+  request_attrs: 
+  - :type: BankTransaction
+    :desc: An object of type BankTransaction
+    :name: BankTransaction
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteBankTransaction
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the unique transaction id
+    :name: TransactionID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertJournal
+  request_attrs: 
+  - :type: JournalEntry
+    :desc: An object of type JournalEntry
+    :name: JournalEntry
+  response_attrs: 
+  - :type: Integer
+    :desc: An Integer representing the new, unique journal entry number
+    :name: JournalEntryNumber
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetJournal
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the journal number
+    :name: JournalNumber
+  response_attrs: 
+  - :type: JournalEntry
+    :desc: An object of type JournalEntry
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetJournals
+  request_attrs: []
+
+  response_attrs: 
+  - :type: JournalEntry
+    :desc: An array of type JournalEntry
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteJournal
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the journal number
+    :name: JournalNumber
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: DeleteJournalByID
+  request_attrs: 
+  - :type: Integer
+    :desc: An integer representing the journal id
+    :name: JournalID
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateJournal
+  request_attrs: 
+  - :type: JournalEntry
+    :desc: An object of type JournalEntry
+    :name: JournalEntry
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: UpdateJournalHeader
+  request_attrs: 
+  - :type: JournalEntry
+    :desc: An object of type JournalEntry
+    :name: JournalEntry
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetAgedDebtors
+  request_attrs: 
+  - :type: DateTime
+    :desc: The date you'd like the report for
+    :name: AgedDebtorsDate
+  response_attrs: 
+  - :type: AgedDebtorsCreditors
+    :desc: An object of type AgedDebtorsCreditors
+    :name: AgedDebtorsCreditors
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetBalanceSheet
+  request_attrs: 
+  - :type: DateTime
+    :desc: The start date for the report
+    :name: Date
+  response_attrs: 
+  - :type: BalanceSheet
+    :desc: An object of type BalanceSheet
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetDigitaCSVFile
+  request_attrs: 
+  - :type: DateTime
+    :desc: The start date for the report
+    :name: StartDate
+  - :type: DateTime
+    :desc: The end date for the report
+    :name: EndDate
+  response_attrs: 
+  - :type: String
+    :desc: An string containing the data for the CSV file.
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetIncomeByCustomer
+  request_attrs: 
+  - :type: DateTime
+    :desc: The start date for the report
+    :name: StartDate
+  - :type: DateTime
+    :desc: The end date for the report
+    :name: EndDate
+  - :type: Boolean
+    :desc: If set to True then the report will be based on invoice dates, as opposed to payment dates
+    :name: BasedOnInvoiceDate
+  response_attrs: 
+  - :type: BasicDataset
+    :desc: |-
+      An array of objects of type BasicDataset.
+                  The ID field contains the customer id. Name is the customer name, Description is the customer code, Value is the income from this customer in the period specified
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetKPIs
+  request_attrs: 
+  - :type: DateTime
+    :desc: The start date for the report
+    :name: StartDate
+  - :type: DateTime
+    :desc: The end date for the report
+    :name: EndDate
+  - :type: Integer
+    :desc: If set to 1 then VAT will not be included in financial values
+    :name: ExcludeVAT
+  - :type: Integer
+    :desc: If set to 1 then invoices and receipts paid on the day of issue will not be included in calculations of how long it takes for invoices and receipts to be paid.
+    :name: ExcludeSameDayPays
+  response_attrs: 
+  - :type: BasicDataset
+    :desc: |-
+      An array of objects of type BasicDataset.
+                  The ID field contains the customer id. Name is the customer name, Description is the customer code, Value is the income from this customer in the period specified
+    :name: 
+  - :type: 
+    :desc: Value
+    :name: 
+  - :type: 
+    :desc: "17"
+    :name: 
+  - :type: 
+    :desc: "24"
+    :name: 
+  - :type: 
+    :desc: "24.60"
+    :name: 
+  - :type: 
+    :desc: "170"
+    :name: 
+  - :type: 
+    :desc: "429"
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetMonthlyProfitAndLoss
+  request_attrs: 
+  - :type: DateTime
+    :desc: The start date for the report
+    :name: StartDate
+  - :type: DateTime
+    :desc: The end date for the report
+    :name: EndDate
+  response_attrs: 
+  - :type: MonthlyProfitAndLoss
+    :desc: An array of type ProfitAndLoss
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetNominalLedger
+  request_attrs: 
+  - :type: DateTime
+    :desc: The start date for the report
+    :name: StartDate
+  - :type: DateTime
+    :desc: The end date for the report
+    :name: EndDate
+  - :type: Integer
+    :desc: The nominal id for the report
+    :name: NominalID
+  response_attrs: 
+  - :type: TransactionInformation
+    :desc: An array of type TransactionInformation
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetProfitAndLoss
+  request_attrs: 
+  - :type: DateTime
+    :desc: The start date for the report
+    :name: StartDate
+  - :type: DateTime
+    :desc: The end date for the report
+    :name: EndDate
+  response_attrs: 
+  - :type: ProfitAndLoss
+    :desc: An object of type ProfitAndLoss
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetTrialBalance
+  request_attrs: 
+  - :type: DateTime
+    :desc: The start date for the report
+    :name: StartDate
+  - :type: DateTime
+    :desc: The end date for the report
+    :name: EndDate
+  response_attrs: 
+  - :type: NominalCode
+    :desc: An array of type NominalCode
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetVATReport
+  request_attrs: 
+  - :type: DateTime
+    :desc: The start date for the report
+    :name: StartDate
+  - :type: DateTime
+    :desc: The end date for the report
+    :name: EndDate
+  response_attrs: 
+  - :type: VATReport
+    :desc: An object of type VATReport
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: AddOrUpdateSubProduct
+  request_attrs: 
+  - :type: SubProduct
+    :desc: |-
+      A SubProduct populated with the relevant fields.
+      If the id is set to 0, a new SubProduct will be created. If it is non-zero then the selected SubProduct will be updated.
+    :name: sp
+  response_attrs: 
+  - :type: Integer
+    :desc: An integer giving the  unique ID number of the updated or newly created  SubProduct
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: AutoAuthIP
+  request_attrs: 
+  - :type: String
+    :desc: The name of your application. This is used in the comment for the IP listing so the user knows which application added the IP address
+    :name: appName
+  - :type: String
+    :desc: "This is the AutoAuthKey mentioned above. It should be provided to you by the user. The AutoAuthKey is a hex string in the format: 1234ABCD-1234"
+    :name: AutoAuthKey
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: createAccount
+  request_attrs: 
+  - :type: String
+    :desc: See above
+    :name: AccountCreationKey
+  - :type: String
+    :desc: The desired username
+    :name: Username
+  - :type: String
+    :desc: The password for the new account. Must be at least 5 characters
+    :name: password
+  - :type: String
+    :desc: The memorable word for the new account. Must be at least 5 characters
+    :name: memorableword
+  - :type: String
+    :desc: The users email address
+    :name: "EmailAddress "
+  - :type: String
+    :desc: The users company name
+    :name: CompanyName
+  - :type: String
+    :desc: An address for the user
+    :name: Addr1
+  - :type: String
+    :desc: !binary |
+      wqA=
+
+    :name: Addr2
+  - :type: String
+    :desc: !binary |
+      wqA=
+
+    :name: Addr3
+  - :type: String
+    :desc: !binary |
+      wqA=
+
+    :name: Addr4
+  - :type: String
+    :desc: The users postcode
+    :name: Postcode
+  - :type: String
+    :desc: A contact name for the user. usually their full name.
+    :name: ContactName
+  - :type: String
+    :desc: The users telephone number
+    :name: Telephone
+  - :type: Integer
+    :desc: Set this to 1 is the user is VAT registered
+    :name: VATRegistered
+  - :type: String
+    :desc: The users VAT number
+    :name: VATNumber
+  - :type: Integer
+    :desc: Set this to 1 if you want the user to have the date in US format and default to $ for the currency
+    :name: USSettings
+  - :type: String
+    :desc: If you've joined our affiliate scheme, you can provide your promotional code here
+    :name: promocode
+  response_attrs: 
+  - :type: Integer
+    :desc: If the account was successfully created you'll receive a user id number
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetAccountOverview
+  request_attrs: []
+
+  response_attrs: 
+  - :type: AccountOverview
+    :desc: An object of type AccountOverview
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetBankOverview
+  request_attrs: []
+
+  response_attrs: 
+  - :type: BankOverview
+    :desc: An array of objects of type BankOverview
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetCurrencies
+  request_attrs: []
+
+  response_attrs: 
+  - :type: Currencies
+    :desc: An array of objects of type Currencies
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetRemoteLoginURL
+  request_attrs: []
+
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetProducts
+  request_attrs: []
+
+  response_attrs: 
+  - :type: Product
+    :desc: An array of objects of type Product
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetProjects
+  request_attrs: []
+
+  response_attrs: 
+  - :type: BasicDataSet
+    :desc: |-
+      An array of objects of type BasicDataSet.
+      The 'ID' member contains the project ID, the 'Name' member contains the project name and the 'Description' member contains the project number.
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetNominalCodes
+  request_attrs: []
+
+  response_attrs: 
+  - :type: NominalCodes
+    :desc: An array of objects of type NominalCode
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetNominalCodesExtended
+  request_attrs: []
+
+  response_attrs: 
+  - :type: NominalCodeExtended
+    :desc: An array of objects of type NominalCodeExtended
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetSubProducts
+  request_attrs: 
+  - :type: Integer
+    :desc: The ID of the NominalCode for which you want to retrieve SubProducts.
+    :name: NominalID
+  response_attrs: 
+  - :type: SubProducts
+    :desc: An array of type  SubProducts
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: GetVATRates
+  request_attrs: []
+
+  response_attrs: 
+  - :type: BasicDataset
+    :desc: |-
+      An array of objects of type BasicDataset.
+                  The ID field contains the  id of the Rate. this is unlikley to be of any use to you.
+                  Name and Description contain the Rate as it should be presented to a user, ie "17.5%"
+                  Value contains the actual rate as a decimal. ie: 17.5
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: InsertNominalCode
+  request_attrs: 
+  - :type: String
+    :desc: The name for the new nominal code
+    :name: name
+  - :type: Integer
+    :desc: The code number for the new nominal code. This must be unique for the user account
+    :name: code
+  - :type: Integer
+    :desc: |-
+      Define what type of code this is. Valid properties are:
+                    1 - Turnover
+                    2 - Cost of Sale
+                    3 - Expense
+                    4 - Fixed Asset 
+      5 - Current Asset/Liability
+      6 - Capital and Reserves
+    :name: classification
+  - :type: Integer
+    :desc: |-
+      Choose where in the system this code should be listed. Valid properties are:
+                   1 - Sales Type
+                   2 - Outgoing Type
+                   3 - Bank Transaction Type
+    :name: nomtype
+  response_attrs: 
+  - :type: Integer
+    :desc: An integer giving the  unique ID number of the newly created nominal code
+    :name: 
+- !ruby/object:Kashflow::ApiMethod 
+  name: isUserVATRegistered
+  request_attrs: []
+
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: SetCustomerCurrency
+  request_attrs: 
+  - :type: String
+    :desc: |-
+      The ISO code of a currency.
+      				
+      				E.g. USD, GBP
+    :name: CurrencyCode
+  - :type: String
+    :desc: The unique customer code.
+    :name: CustomerCode
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: SetSupplierCurrency
+  request_attrs: 
+  - :type: String
+    :desc: |-
+      The ISO code of a currency.
+      				
+      				E.g. USD, GBP
+    :name: CurrencyCode
+  - :type: String
+    :desc: The unique supplier code.
+    :name: SupplierCode
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: SetCustomerVATNumber
+  request_attrs: 
+  - :type: String
+    :desc: A VAT Number.
+    :name: CustVATNumber
+  - :type: String
+    :desc: The unique customer code.
+    :name: CustomerCode
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: SetSupplierVATNumber
+  request_attrs: 
+  - :type: String
+    :desc: A VAT Number.
+    :name: SupVATNumber
+  - :type: String
+    :desc: The unique supplier code.
+    :name: SupplierCode
+  response_attrs: []
+
+- !ruby/object:Kashflow::ApiMethod 
+  name: VCFToCustomerObjects
+  request_attrs: 
+  - :type: base64Binary
+    :desc: A Base 64 binary array representing the .vcf file.
+    :name: inStream
+  response_attrs: 
+  - :type: Customer
+    :desc: An array of objects of type Customer
+    :name: 

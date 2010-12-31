@@ -1,0 +1,12 @@
+log/*.log
+log/*.pid
+public/stylesheets/compiled/*.css
+*.sql
+*.sql.gz
+db/*.sqlite3
+*~
+tmp/**/*
+vendor/gems/**/*
+htmldump/*
+.DS_Store
+.rvmrc

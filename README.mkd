@@ -1,0 +1,49 @@
+Kashflow
+====================
+A Ruby wrapper for the Kashflow API
+
+Installation
+------------
+    gem install kashflow
+
+Use
+-------------
+    k = Kashflow.client('my_login', 'my_password')
+
+    # call the GetCustomers method
+    k.get_customers
+
+    # call the GetInvoices_Unpaid method
+    k.get_invoices_unpaid
+
+    # call a method with a parameter
+    k.get_customer_by_email(:customer_email => 'customer@example.com')
+
+    k.delete_invoice(:invoice_number => 5)
+
+The full SOAP API should be usable. Any data returned will be stuffed into an OpenStruct so you can do something like:
+
+    customers = k.get_customers
+    customers.each do |cust|
+      next unless cust.email.ends_with?('.co.uk')
+      
+      puts "#{cust.name}: #{cust.contact} - #{cust.website}"
+    end
+
+Otherwise, there's not much code so if you have questions dig in, or contact dev@pogodan.com for help
+
+Contributing
+-------------
+
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+Copyright
+-------------
+
+Copyright (c) 2010 Pogodan. See LICENSE.txt for further details.
