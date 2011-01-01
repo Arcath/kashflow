@@ -10,3 +10,4 @@ vendor/gems/**/*
 htmldump/*
 .DS_Store
 .rvmrc
+pkg/**/*
