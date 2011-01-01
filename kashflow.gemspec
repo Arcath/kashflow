@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_kashflow.rb"
   ]
-  s.homepage = %q{https://github.com/pogodan/kashflow}
+  s.homepage = %q{http://www.pogodan.com/projects}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
