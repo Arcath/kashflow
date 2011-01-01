@@ -7,7 +7,6 @@ db/*.sqlite3
 *~
 tmp/**/*
 vendor/gems/**/*
-htmldump/*
 .DS_Store
 .rvmrc
-pkg/**/*
+pkg/*
