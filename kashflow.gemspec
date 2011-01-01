@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pogodan"]
-  s.date = %q{2010-12-31}
+  s.date = %q{2011-01-01}
   s.description = %q{A Ruby wrapper for the Kashflow Accouting SOAP API}
   s.email = %q{paul@pogodan.com}
   s.extra_rdoc_files = [
@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_kashflow.rb"
   ]
-  s.homepage = %q{http://www.pogodan.com/projects}
+  s.homepage = %q{https://github.com/pogodan/kashflow}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
