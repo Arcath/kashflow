@@ -13,11 +13,11 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "kashflow"
-  gem.homepage = "https://github.com/pogodan/kashflow"
+  gem.homepage = "http://www.pogodan.com/projects"
   gem.license = "MIT"
   gem.summary = %Q{A Ruby wrapper for the Kashflow SOAP API}
   gem.description = %Q{A Ruby wrapper for the Kashflow Accouting SOAP API}
-  gem.email = "paul@pogodan.com"
+  gem.email = "dev@pogodan.com"
   gem.authors = ["Pogodan"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
