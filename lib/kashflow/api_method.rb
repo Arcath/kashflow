@@ -4,7 +4,7 @@ module Kashflow
   
     def initialize(name, fields)
       @name = name
-    
+        
       # split into request/response attrs
       @request_attrs, @response_attrs = fields.partition{|f| f[:direction] == 'IN' }.map do |arr| 
         arr.map do |fields| 

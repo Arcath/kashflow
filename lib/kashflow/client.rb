@@ -42,29 +42,50 @@ module Kashflow
       raise "API call failed: [#{response[:status_detail]}]\n\n #{response.inspect}" unless response[:status] == 'OK'
     
       r = response["#{name}_result".to_sym]
-    
-      if r.is_a?(Enumerable)
-        if r.values.all?{|v| v.is_a?(Array) }# || r.keys.size == 1
-          object_type, attrs = r.first
-        else
-          #puts "arrayifying #{r.inspect}"
-          object_type = lookup_api_method(name).response_attrs.first[:type]
-          attrs = r.first.last.is_a?(Hash) ? [r.first.last] : [r]
-        end
-      
-        #puts "it's an enumerable... #{object_type} | #{attrs.inspect}"
-      
-        ostructs = attrs.map do |record_attrs|
-          #puts "making new ostruct with #{record_attrs.inspect}"
-          OpenStruct.new(record_attrs.merge(:object_type => object_type.to_s))
-        end
-        #r.first.last
+      if r.is_a?(String)
+      		r
       else
-        #puts "it's a #{r.class}"
-        r
+	      if r.is_a?(Enumerable)
+		if r.values.all?{|v| v.is_a?(Array) }# || r.keys.size == 1
+		  object_type, attrs = r.first
+		else
+		  #puts "arrayifying #{r.inspect}"
+		  object_type = lookup_api_method(name).response_attrs.first[:type]
+		  attrs = r.first.last.is_a?(Hash) ? [r.first.last] : [r]
+		end
+	      
+		#puts "it's an enumerable... #{object_type} | #{attrs.inspect}"
+	      
+		ostructs = attrs.map do |record_attrs|
+		  #puts "making new ostruct with #{record_attrs.inspect}"
+		  OpenStruct.new(record_attrs.merge(:object_type => object_type.to_s))
+		end
+		#r.first.last
+	      else
+		#puts "it's a #{r.class}"
+		r
+	      end
       end
     end
-  
+    
+    def object_wrapper(name, params_xml)
+    	object_alias = {:customer => "custr", :quote => "quote", :invoice => "Inv", :supplier => "supl", :receipt => "Inv", :line => "InvLine"}
+    	needs_object = [ "insert", "update" ]
+    	operation, object, line = name.to_s.split("_")
+    	if needs_object.include? operation
+	    	text = object_alias[object.to_sym]
+	    	text = "sup" if operation == "update" and object == "supplier"
+	    	if line
+	    		text = object_alias[:line]
+	    		line_id = "<ReceiptID>#{params_xml.scan(/<ReceiptID>(.*?)<\/ReceiptID>/)}</ReceiptID>\n\t\t" if object == "receipt"
+	    		line_id = "<InvoiceID>#{params_xml.scan(/<InvoiceID>(.*?)<\/InvoiceID>/)}</InvoiceID>\n\t\t" if object == "invoice"
+	    	end
+	    	return ["#{line_id}<#{text}>", "</#{text}>"]
+	else
+		return ["",""]
+	end
+    end
+    
     # called with CamelCase version of method name
     def soap_call(name, method, params = {})
       begin
@@ -76,14 +97,20 @@ module Kashflow
             xml_tag = field.to_s.camelize
             "<#{xml_tag}>#{value}</#{xml_tag}>"
           end.join("\n") unless params.blank?
-        
+          
+	  params_xml = params_xml.gsub(/Id>/,"ID>") if params_xml
+	  params_xml = params_xml.gsub(/Dbid>/,"DBID>") if params_xml
+	  pretext, posttext = object_wrapper(name, params_xml)
+          
           soap.xml = %[<?xml version="1.0" encoding="utf-8"?>
           <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
             <soap:Body>
               <#{method} xmlns="KashFlow">
                 <UserName>#{@login}</UserName>
                 <Password>#{@password}</Password>
+                #{pretext}
                 #{params_xml}
+                #{posttext}
               </#{method}>
             </soap:Body>
           </soap:Envelope>]
