@@ -11,4 +11,7 @@ group :development do
   
   gem 'i18n'
   gem 'activesupport'
+  
+  gem 'rspec'
+  gem 'fakeweb'
 end
